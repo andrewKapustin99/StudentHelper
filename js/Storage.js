@@ -18,12 +18,10 @@ class DocumentStorage{
 }
 
 let DocumentStor = new DocumentStorage(docsStorage);
-DocumentStor.addDoc('fff')
-DocumentStor.addDoc('aaa')
-DocumentStor.addDoc('sss')
-DocumentStor.addDoc('frfrfrff')
-DocumentStor.sortDocs()
 
-console.log(DocumentStor)
+
+// console.log(DocumentStor)
+
+
 
 // готово

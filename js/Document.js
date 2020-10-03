@@ -9,9 +9,16 @@ class SubjectDocument{
     }
 }
 
-let documents =[]; // запушить файлы в массив
+function start(name, subject, year, mark) {
+    const docum = new SubjectDocument(name, subject, year, mark);
+    DocumentStor.addDoc(docum);
+}
 
-const file1 = new SubjectDocument('english litrature', 'english litrature', 2019, 0);
-const file2 = new SubjectDocument('english', 'english in mass media', 2019, 0);
-const file3 = new SubjectDocument('deutch themes', 'deutsch', 2020, 0);
-const file4 = new SubjectDocument('spain history', 'spanish', 2017, 0);
+start('english litrature', 'english litrature', 2019, 5);
+start('english', 'english in mass media', 2019, 6);
+start('deutch themes', 'deutsch', 2020, 3);
+start('spain history', 'spanish', 2017, 2)
+
+
+
+
