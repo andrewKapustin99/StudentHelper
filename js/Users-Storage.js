@@ -1,23 +1,10 @@
-// class UsersStorage{
-//     constructor(users, roles){
-//         this.users = users;
-//         this.roles = roles;
-//     }
-//     addUsers(key, value) {
-//         this.users.set(key, value);
-//     }
-// }
-// let userStorage = new UsersStorage(new Map(), new Set());
-
-
-// console.log(userStorage)
-
+let usersStorage = new Map();
 class UsersStorage {
-    constructor(user) {
-        this.user = user;
+    constructor(userMap) {
+        this.userMap = userMap;
     }
-    show() {
-        console.log(this.user);
+    addUser(user) {
+        usersStorage.set(Date.now(), user)
     }
 }
-// console.log(new UsersStorage)
+let UserStorage = new UsersStorage(usersStorage);
