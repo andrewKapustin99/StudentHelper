@@ -19,13 +19,12 @@ class Student extends User{
 }
 
 function createUser(name, id, roles) {
-    const user = new User(name, id, roles);
-    UserStorage.addUser(user);
+    userStorage.addItems(new User(name, id, roles));
 }
 
-// createUser('Ivan', 'ivan@gmail.com', ['student']);
-// createUser('Vasy', 'vasy@mail.com', ['student']);
-// createUser('Boris', 'boris@gmail.com', ['student', 'admin']);
-// createUser('Oly', 'oly@yandex.com', ['student']);
-// createUser('Gena', 'gena@tut.by', ['student']);
-// createUser('Nastia', 'nastia@gmail.com', ['student']);
+createUser('Ivan', 'ivan@gmail.com', ['student']);
+createUser('Vasy', 'vasy@mail.com', ['student']);
+createUser('Boris', 'boris@gmail.com', ['student', 'admin']);
+createUser('Oly', 'oly@yandex.com', ['student']);
+createUser('Gena', 'gena@tut.by', ['student']);
+createUser('Nastia', 'nastia@gmail.com', ['student']);

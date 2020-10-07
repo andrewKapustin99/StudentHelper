@@ -1,70 +1,22 @@
-let docsStorage = [];
 class DocumentStorage{
-    constructor(arr){
-        this.arr = arr;
+    constructor(initial){
+        this.items = initial || [];
     }
-    // this = DocumentStor
-    addDoc(doc){ // добавить документ в хранилище
-        docsStorage.push(doc);
+    addItems(item) {
+        this.items.push(item);
     }
-    removeDoc(name){ // удалить документ из хранилища
-        for(let i = 0; i < this.arr.length; i++) {
-            if(name == this.arr[i].name){
-                this.arr.splice(i, 1)
-            }
-        }
+    removeItem(id) {
+        this.items = this.items.filter( element => element.id != id)
     }
-    getList(){ // вывести список всех документов хранилища
-        return this.arr;
+    getList() {
+        return this.items;
     }
-    // sortDocs(){
-    //     return docsStorage.sort();
-    // }
-    getElementByItsId(id){ // выбрать элемент по ID
-        for(let i = 0; i < this.arr.length; i++){
-            if(this.arr[i].id == id){
-                return this.arr[i];
-            }
-        } 
+    getElementById(id) {
+        return this.items.find( item => item.id == id);
     }
-    sortList(param){
-        if(param == 'name'){
-            return docsStorage.sort(function(a, b){
-                if(a.name > b.name){
-                    return 1
-                } if (a.name < b.name){
-                    return -1
-                }
-                return 0
-            });
-        } else if (param == 'subject'){
-            return docsStorage.sort(function(a, b){
-                if(a.subject > b.subject){
-                    return 1
-                } if (a.subject < b.subject){
-                    return -1
-                }
-                return 0
-            });
-        } else if (param == 'year'){
-            return docsStorage.sort(function(a, b){
-                if(a.year > b.year){
-                    return 1
-                } if (a.year < b.year){
-                    return -1
-                }
-                return 0
-            });
-        } else if(param == 'mark') {
-            return docsStorage.sort(function(a, b){
-                if(a.mark > b.mark){
-                    return 1
-                } if (a.mark < b.mark){
-                    return -1
-                }
-                return 0
-            });
-        }
+    sortItems(key) {
+        return this.items.sort( (a, b) => a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);
     }
 }
-let DocumentStor = new DocumentStorage(docsStorage);
+
+const docsStorage = new DocumentStorage();
