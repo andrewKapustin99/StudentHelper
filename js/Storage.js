@@ -19,4 +19,4 @@ class DocumentStorage{
     }
 }
 
-const docsStorage = new DocumentStorage();
+const DOCSSTORAGE = new DocumentStorage();

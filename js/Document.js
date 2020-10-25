@@ -9,13 +9,13 @@ class SubjectDocument{
     }
 }
 
-function start(name, subject, year, mark) {
-    docsStorage.addItems(new SubjectDocument(name, subject, year, mark));
+function createDocument(name, subject, year, mark) {
+    DOCSSTORAGE.addItems(new SubjectDocument(name, subject, year, mark));
 }
 
-start('logorifm', 'algebra', 2020, 5);
-start('english', 'english in mass media', 2018, 6);
-start('themes', 'deutsch', 2015, 3);
-start('spain history', 'spanish', 2021, 2)
+createDocument('logorifm', 'algebra', 2020, 5);
+createDocument('english', 'english in mass media', 2018, 6);
+createDocument('themes', 'deutsch', 2015, 3);
+createDocument('spain history', 'spanish', 2021, 2)
 
 

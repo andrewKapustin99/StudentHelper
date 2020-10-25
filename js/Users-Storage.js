@@ -28,4 +28,4 @@ class UsersStorage extends DocumentStorage{
     }
 }
 
-const userStorage = new UsersStorage();
+const USERSTORAGE = new UsersStorage();

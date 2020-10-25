@@ -19,7 +19,7 @@ class Student extends User{
 }
 
 function createUser(name, id, roles) {
-    userStorage.addItems(new User(name, id, roles));
+    USERSTORAGE.addItems(new User(name, id, roles));
 }
 
 createUser('Ivan', 'ivan@gmail.com', ['student']);
