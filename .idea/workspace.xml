@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6f790fe4-56bb-448b-a6b9-1739916514e8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/NodeJs/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/NodeJs/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Storage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Users-Storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Users-Storage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/fillFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/fillFile.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jPcFivImY57LeBStezhMktFqwK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f790fe4-56bb-448b-a6b9-1739916514e8" name="Default Changelist" comment="" />
+      <created>1603709065466</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603709065466</updated>
+      <workItem from="1603709066619" duration="10222000" />
+      <workItem from="1603742588549" duration="1263000" />
+      <workItem from="1603788409075" duration="8301000" />
+      <workItem from="1604238053201" duration="1271000" />
+      <workItem from="1604473279259" duration="4962000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="645" y="128" width="709" height="756" key="dock-window-1" timestamp="1603740445805">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="645" y="128" width="709" height="756" key="dock-window-1/0.0.1440.900@0.0.1440.900" timestamp="1603740445805" />
+    <state x="385" y="190" key="run.anything.popup" timestamp="1603734361856">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="190" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1603734361856" />
+    <state x="385" y="195" key="run.anything.popup/0.23.1440.813@0.23.1440.813" timestamp="1603709085271" />
+  </component>
+</project>

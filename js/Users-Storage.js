@@ -1,3 +1,5 @@
+var DocumentStorage = require('./Storage');
+
 let userId = 0;
 class UsersStorage extends DocumentStorage{
     constructor(initial){
@@ -26,6 +28,15 @@ class UsersStorage extends DocumentStorage{
         keysValue = Object.values(keysValue);
         return keysValue.sort( (a, b) => a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);
     }
+    updateUser(id, body) {
+        const user = this.items.find( user => user.id == id);
+        if(user) {
+            user.name = body.name;
+            // ...
+        }
+        return user;
+    }
 }
 
-const USERSTORAGE = new UsersStorage();
+const usersStorage = new UsersStorage();
+module.exports = usersStorage;

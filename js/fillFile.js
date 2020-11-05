@@ -1,4 +1,4 @@
-var documentStorage = require('./Storage');
+var documentStorage = require('./DocumentStorage');
 
 var run = function () {
     let id = 0;
