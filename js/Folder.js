@@ -1,9 +1,8 @@
 class Folder{
-    constructor(id, parentId, name, descrioption){
+    constructor(id, name, parentFolderId){
         this.id = id;
-        this.parentId = parentId;
         this.name = name; // имя папки
-        this.descrioption = descrioption;
+        this.parentFolderId = parentFolderId;
     }
 }
 module.exports = Folder;

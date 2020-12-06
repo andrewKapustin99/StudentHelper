@@ -1,26 +1,22 @@
-class arrayStorage{
+class ArrayStorage{
     constructor(initial){
-        this.items = initial || [];
+        this.array = initial || [];
     }
     addItems(item) {
-        this.items.push(item);
+        this.array.push(item);
         return item;
     }
     removeItem(id) {
-        this.items = this.items.filter( element => element.id !== id)
+        this.array = this.array.filter( element => element.id !== id)
     }
     getList() {
-        return this.items;
+        return this.array;
     }
     getElementById(id) {
-        return this.items.find( item => item.id == id);
+        return this.array.find( item => item.id == id);
     }
     sortItems(key) {
-        return this.items.sort( (a, b) => a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);
+        return this.array.sort( (a, b) => a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);
     }
 }
-
-
-module.exports = arrayStorage;
-
-
+module.exports = ArrayStorage;

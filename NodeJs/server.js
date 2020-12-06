@@ -1,13 +1,10 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var documents = require('../js/DocumentStorage');
-var fillDocStorage = require('../js/fillFile'); // потом можно удалить
-var SubjectDocument = require('../js/createFile');
+const express = require('express');
+const bodyParser = require('body-parser');
+// const documents = require('../js/DocumentStorage');
 
-var users = require('../js/Users-Storage');
-var fillUserStorage = require('../js/User');
-var User = require('../js/createUser');
-// const apiRouter = require('API/apiRouter');
+const fillDocStorage = require('../js/fillFile'); // потом можно удалить
+const fillUserStorage = require('../js/User');
+
 const apiRouter = require('../js/API/apiRouter');
 
 
@@ -16,7 +13,7 @@ fillDocStorage();
 fillUserStorage();
 
 
-var app = express();
+const app = express();
 app.use(bodyParser.json()); // чтобы парсить json
 
 
@@ -24,7 +21,7 @@ app.get('/', function (req, res) {
     res.send("Show API");
 });
 
-app.use('/api', apiRouter);
+app.use('/', apiRouter);
 
 
 app.listen(1703, function () {

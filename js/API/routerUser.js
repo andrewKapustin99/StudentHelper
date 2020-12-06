@@ -1,8 +1,10 @@
-var express = require('express');
-var users = require('../Users-Storage');
-var User = require('../createUser');
-var router = express.Router();
+const express = require('express');
+const users = require('../Users-Storage');
+const User = require('../createUser');
+const router = express.Router();
 
+
+// app.route('/users')
 router
     .get('/', (req, res) => {
         res.send(users.getList());

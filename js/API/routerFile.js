@@ -1,9 +1,8 @@
 const express = require('express');
 const documents = require('../DocumentStorage');
 const SubjectDocument = require('../createFile');
+
 const router = express.Router();
-
-
 
 router // вынести в отдельный файл
     .get('/', (req, res) => {
