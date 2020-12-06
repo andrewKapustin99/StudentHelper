@@ -1,10 +1,10 @@
 class SubjectDocument{
-    constructor(name, subject, year, mark){
+    constructor(name, subject, year, mark, parentFolderId){
         this.name = name;
-        // this.id = Date.now();
         this.subject = subject;
         this.year = year;
         this.mark = mark;
+        // this.parentFolderId = parentFolderId;
     }
 }
 
