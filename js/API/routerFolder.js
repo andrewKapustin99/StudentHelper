@@ -4,24 +4,27 @@ const Folder = require('../Folder');
 const router = express.Router();
 
 router
-    .get('/', (req, res) =>{
-        res.send( folderStorage.getList() );
+    .get('/', async(req, res) =>{
+        const folders = await folderStorage.getList()
+        res.send( folders );
     })
-    .post('/', (req, res) => {
-        const folder = folderStorage.addItems(new Folder(req.body.id, req.body.name, req.body.parentFolderId));
+    .post('/', async (req, res) => {
+        const parentId = folderStorage.getList()[0].name;
+        const folder = await folderStorage.addItems(new Folder(req.body.id, req.body.name, parentId));
         res.send(folder);
     })
-    .delete('/:id', (req, res) => {
-        folderStorage.removeItem(Number(req.params.id));
+    .delete('/:id', async (req, res) => {
+        await folderStorage.removeItem(Number(req.params.id));
         res.sendStatus(200);
     })
-    .put('/:id', (req, res) => {
+    .put('/:id', async (req, res) => {
         const id = req.params.id;
-        const folder = folderStorage.updateFolder(id, new Folder((req.body.id, req.body.name, req.body.parentFolderId)));
+        const folder = await folderStorage.updateFolder(id, new Folder((req.body.id, req.body.name, req.body.parentFolderId)));
         res.send(folder);
     })
-    .get('/:parentId', (req, res) =>{
-        res.send(folderStorage.getFoldersByParentId(Number(req.params.parentFolderId)));
+    .get('/:parentId', async (req, res) =>{
+        const fold = await folderStorage.getFoldersByParentId(Number(req.params.parentFolderId))
+        res.send(fold);
     })
 
 

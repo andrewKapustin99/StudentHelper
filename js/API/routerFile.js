@@ -5,26 +5,27 @@ const SubjectDocument = require('../createFile');
 const router = express.Router();
 
 router // вынести в отдельный файл
-    .get('/', (req, res) => {
-        res.send(documents.getList());
+    .get('/', async (req, res) => {
+        const list = await documents.getList()
+        res.send(list);
     })
-    .post('/', (req, res) => {
-        const file = documents.addItems(new SubjectDocument( req.body.name, req.body.subject, req.body.year, req.body.mark));
-        // res.send(documents.getList())
+    .post('/', async (req, res) => {
+        const file = await documents.addItems(new SubjectDocument( req.body.name, req.body.subject, req.body.year, req.body.mark));
         res.send(file);
     })
-    .put('/:id',(req, res) => {
+    .put('/:id',async (req, res) => {
         const id = req.params.id;
-        const file = documents.updateItem(id, new SubjectDocument( req.body.name, req.body.subject, req.body.year, req.body.mark));
-        console.log(file, req.body);
+        const file = await documents.updateItem(id, new SubjectDocument( req.body.name, req.body.subject, req.body.year, req.body.mark));
+        // console.log(file, req.body);
         res.send(file);
     })
-    .delete('/:id',(req, res) => {
-        documents.removeItem(Number(req.params.id));
+    .delete('/:id',async (req, res) => {
+        await documents.removeItem(Number(req.params.id));
         res.sendStatus(200);
     })
-    .get('/:id', (req, res) => {
-        res.send( documents.getElementById(Number(req.params.id)) );
+    .get('/:id', async (req, res) => {
+        const file = await documents.getElementById(Number(req.params.id));
+        res.send( file );
     });
 
 module.exports = router;

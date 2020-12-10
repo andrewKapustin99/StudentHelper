@@ -6,24 +6,26 @@ const router = express.Router();
 
 // app.route('/users')
 router
-    .get('/', (req, res) => {
-        res.send(users.getList());
+    .get('/', async (req, res) => {
+        const list = await users.getList()
+        res.send(list);
     })
-    .post('/', (req, res)=> {
-        const user = users.addItems(new User( req.body.name, req.body.id, req.body.roles));
+    .post('/', async (req, res)=> {
+        const user = await users.addItems(new User( req.body.name, req.body.id, req.body.roles));
         res.send(user);
     })
-    .put('/:id', (req, res) => {
+    .put('/:id', async (req, res) => {
         const id = req.params.id;
-        const user = users.updateUser(id, new User( req.body.name, req.body.id, req.body.roles));
+        const user = await users.updateUser(id, new User( req.body.name, req.body.id, req.body.roles));
         res.send(user);
     })
-    .delete('/:id', (req, res) => {
-        users.removeItem(Number(req.params.id));
+    .delete('/:id', async(req, res) => {
+        await users.removeItem(Number(req.params.id));
         res.sendStatus(200);
     })
-    .get('/:id', (req, res) => {
-        res.send(users.getElementById(Number(req.params.id)));
+    .get('/:id', async (req, res) => {
+        const user = await users.getElementById(Number(req.params.id));
+        res.send(user);
     });
 
 module.exports = router;

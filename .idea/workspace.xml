@@ -20,20 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f790fe4-56bb-448b-a6b9-1739916514e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js/fillFolder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NodeJs/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/NodeJs/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/API/apiRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/API/apiRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/API/routerFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/API/routerFile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/API/routerFolder.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/API/routerFolder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/API/routerUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/API/routerUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/DocumentStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/DocumentStorage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Folder.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Folder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/FolderStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/FolderStorage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Storage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Users-Storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Users-Storage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/arrayStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/arrayStorage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/mapStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/mapStorage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +73,8 @@
       <workItem from="1607253789745" duration="460000" />
       <workItem from="1607256022194" duration="78000" />
       <workItem from="1607256148064" duration="75000" />
-      <workItem from="1607256279544" duration="8717000" />
+      <workItem from="1607256279544" duration="9088000" />
+      <workItem from="1607338982778" duration="7628000" />
     </task>
     <servers />
   </component>

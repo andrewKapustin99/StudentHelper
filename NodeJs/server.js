@@ -4,14 +4,13 @@ const bodyParser = require('body-parser');
 
 const fillDocStorage = require('../js/fillFile'); // потом можно удалить
 const fillUserStorage = require('../js/User');
+const fillFolderStorage = require('../js/fillFolder');
 
 const apiRouter = require('../js/API/apiRouter');
 
-
-
 fillDocStorage();
 fillUserStorage();
-
+fillFolderStorage();
 
 const app = express();
 app.use(bodyParser.json()); // чтобы парсить json

@@ -6,14 +6,13 @@ class FolderStorage extends  arrayStorage{
         super();
     }
     addItems(item) {
-        if(this.array.length === 0) {
-            item.parentFolderId = null;
-        }
-
         const id = globalId++;
         item.id = id;
+        const parentFolder = this.array.find( item => item.parentFolderId === null);
+        // console.log(this.array);
+        // item.parentFolderId = parentFolder.name;
         this.array.push(item);
-        return item;
+        return item
     }
 
     getFoldersByParentId(id) {
@@ -26,9 +25,9 @@ class FolderStorage extends  arrayStorage{
         const folder = this.array.find( item => item.id == id);
         if(folder) {
             folder.name = body.name || folder.name;
+            folder.parentFolderId = body.parentFolderId || folder.parentFolderId;
         }
     }
 }
 const folderStorage = new FolderStorage();
-
 module.exports = folderStorage;
