@@ -8,9 +8,13 @@ router
         const folders = await folderStorage.getList()
         res.send( folders );
     })
+    .get('/root', async(req, res) =>{
+        const root = await folderStorage.getFoldersByParentId(null);
+        res.send( root );
+    })
     .post('/', async (req, res) => {
-        const parentId = folderStorage.getList()[0].name;
-        const folder = await folderStorage.addItems(new Folder(req.body.id, req.body.name, parentId));
+
+        const folder = await folderStorage.addItems(new Folder(req.body.id, req.body.name, req.body.parentFolderId));
         res.send(folder);
     })
     .delete('/:id', async (req, res) => {

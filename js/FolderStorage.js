@@ -1,4 +1,4 @@
-const arrayStorage = require('./arrayStorage');
+const arrayStorage = require('./arrayStorage'); 
 
 let globalId = 0;
 class FolderStorage extends  arrayStorage{
