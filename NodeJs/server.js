@@ -3,8 +3,11 @@ const bodyParser = require('body-parser');
 // const documents = require('../js/DocumentStorage');
 
 const fillDocStorage = require('../js/fillFile'); // потом можно удалить
-const fillUserStorage = require('../js/User');
+const fillUserStorage = require('../js/fillUser');
 const fillFolderStorage = require('../js/fillFolder');
+
+var cors = require('cors');
+
 
 const apiRouter = require('../js/API/apiRouter');
 
@@ -14,6 +17,8 @@ fillFolderStorage();
 
 const app = express();
 app.use(bodyParser.json()); // чтобы парсить json
+
+app.use(cors());
 
 
 app.get('/', function (req, res) {

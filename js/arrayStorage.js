@@ -3,8 +3,6 @@ class ArrayStorage{
         this.array = initial || [];
     }
     addItems(item) {
-        this.array.push(item);
-        return item;
     }
     removeItem(id) {
         this.array = this.array.filter( element => element.id !== id)
@@ -17,6 +15,13 @@ class ArrayStorage{
     }
     sortItems(key) {
         return this.array.sort( (a, b) => a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);
+    }
+    updateItem(id, changedItem) {
+        const itemIndex = this.array.findIndex( x => x.id === Number(id));
+        const oldItem = this.array[itemIndex];
+        const updatedItem = {...oldItem, ...changedItem};
+        this.array.splice(itemIndex, 1, updatedItem);
+        return updatedItem;
     }
 }
 module.exports = ArrayStorage;

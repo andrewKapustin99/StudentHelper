@@ -25,13 +25,14 @@ class MapStorage {
         keysValue = Object.values(keysValue);
         return keysValue.sort( (a, b) => a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);
     }
-    updateUser(id, body) {
-        const user = this.map.find( user => user.id == id);
-        if(user) {
-            user.name = body.name;
-            // ...
-        }
-        return user;
+    updateUser(id, newItem) {
+        const oldItem = this.map.get(id);
+        const updatedItem = {...oldItem, ...newItem};
+        this.map.set(id, updatedItem);
+        return updatedItem;
+    }
+    getValue(value) {
+        return [...this.map].find( ([key, val]) => val == value )[0]
     }
 }
 

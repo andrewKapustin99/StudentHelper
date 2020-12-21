@@ -1,25 +1,18 @@
-var documentStorage = require('./DocumentStorage');
+const documentStorage = require('./DocumentStorage');
+const File = require('./createFile');
 
-var run = function () {
-    let id = 0;
-    class SubjectDocument{
-        constructor(name, subject, year, mark){
-            this.name = name;
-            this.id = id++;
-            this.subject = subject;
-            this.year = year;
-            this.mark = mark;
-        }
-    }
+const run = function () {
+    const file1 = documentStorage.addItems( {name: 'logorifm', subject: 'algebra', year: 2020, mark: 5, parentFolderId: 0});
+    const file2 = documentStorage.addItems( {name: 'english', subject: 'english in mass media', year: 2018, mark: 6, parentFolderId: 0});
+    const file3 = documentStorage.addItems( {name: 'themes', subject: 'deutsch', year: 2015, mark: 3, parentFolderId: 0});
+    const file4 = documentStorage.addItems( {name: 'spain history', subject: 'spanish', year: 2021, mark: 2, parentFolderId: 0});
 
-    function createDocument(name, subject, year, mark) {
-        documentStorage.addItems(new SubjectDocument(name, subject, year, mark));
-    }
+    const file5 = documentStorage.addItems( {name: 'Document 1', subject: 'spanish', year: 2021, mark: 2, parentFolderId: 2});
+    const file6 = documentStorage.addItems( {name: 'Document 2', subject: 'english', year: 2021, mark: 2, parentFolderId: 2});
+    const file7 = documentStorage.addItems( {name: 'Document 3', subject: 'deutsch', year: 2021, mark: 2, parentFolderId: 2});
+    const file8 = documentStorage.addItems( {name: 'Document 4', subject: 'turki', year: 2021, mark: 2, parentFolderId: 2});
+    const file9 = documentStorage.addItems( {name: 'Document 5', subject: 'russian', year: 2021, mark: 2, parentFolderId: 2});
 
-    createDocument('logorifm', 'algebra', 2020, 5);
-    createDocument('english', 'english in mass media', 2018, 6);
-    createDocument('themes', 'deutsch', 2015, 3);
-    createDocument('spain history', 'spanish', 2021, 2);
 }
 
 module.exports = run;

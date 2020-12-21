@@ -1,33 +1,28 @@
-const arrayStorage = require('./arrayStorage'); 
+const arrayStorage = require('./arrayStorage');
+const Folder = require('./Folder')
 
-let globalId = 0;
+let _id = 0;
 class FolderStorage extends  arrayStorage{
     constructor() {
         super();
     }
     addItems(item) {
-        const id = globalId++;
-        item.id = id;
-        const parentFolder = this.array.find( item => item.parentFolderId === null);
-        // console.log(this.array);
-        // item.parentFolderId = parentFolder.name;
+        item.id = _id++;
         this.array.push(item);
-        return item
+        return item;
     }
 
-    getFoldersByParentId(id) {
-        return this.array.find( item => item.parentFolderId === id);
-    }
-    getFilesByParentId(id) {
-        // return ????.find( item => item.parentFolderId === id)
-    }
-    updateFolder(id, body) {
-        const folder = this.array.find( item => item.id == id);
-        if(folder) {
-            folder.name = body.name || folder.name;
-            folder.parentFolderId = body.parentFolderId || folder.parentFolderId;
+    getElementById(id, extended) {
+        if(!extended) {
+            super.getElementById(id);
         }
+        const innerFolders = this.getByParentId(id);
+        return new Folder({...super.getElementById(id), folders: innerFolders})
     }
+    getByParentId(parentId) {
+        return this.array.filter( x => x.parentFolderId === parentId);
+    }
+
 }
 const folderStorage = new FolderStorage();
 module.exports = folderStorage;

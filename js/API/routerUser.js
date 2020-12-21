@@ -12,19 +12,23 @@ router
     })
     .post('/', async (req, res)=> {
         const user = await users.addItems(new User( req.body.name, req.body.id, req.body.roles));
-        res.send(user);
+        // res.sendStatus(200);
+        res.send(user); // не показывает нового юзера
     })
     .put('/:id', async (req, res) => {
-        const id = req.params.id;
-        const user = await users.updateUser(id, new User( req.body.name, req.body.id, req.body.roles));
-        res.send(user);
+        const userId = await users.getElementById(req.params.id);
+        const id = await users.getValue(userId);
+        const updatedUser = await users.updateUser(id, req.body);
+        res.send(updatedUser);
     })
     .delete('/:id', async(req, res) => {
-        await users.removeItem(Number(req.params.id));
+        const user = await users.getElementById(req.params.id);
+        const id = await users.getValue(user);
+        await users.removeItem(id);
         res.sendStatus(200);
     })
     .get('/:id', async (req, res) => {
-        const user = await users.getElementById(Number(req.params.id));
+        const user = await users.getElementById(req.params.id);
         res.send(user);
     });
 
