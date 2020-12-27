@@ -56,8 +56,7 @@ class FolderClient extends ClientApi {
 
 
 const folderExample = {
-    "name":'New Folder new Life',
-    "parentFolderId": 0
+    "name":'New Folder new Life'
 }
 
 const folderClietn = new FolderClient();
@@ -121,11 +120,11 @@ const newUser = {
     "roles": ["student"]
 }
 const userClietn = new UserClient();
-// userClietn.getAllUsers().then( data => console.log(data) );
+userClietn.getAllUsers().then( data => console.log(data) );
 // userClietn.getUser('ivan@gmail.com').then( data => console.log(data) );
 // userClietn.deleteUser('ivan@gmail.com').then( data => console.log(data));
 
 
 // РАБОТАЮТ В POSTMAN, НО НЕ РАБОТАЮТ В БРАУЗЕРЕ
-userClietn.postUser(newUser).then(data => console.log(data));
-// userClietn.putUser('ivan@gmail.com', newUser).then( data => console.log(data));
+// userClietn.postUser(newUser).then(data => console.log(data));
+userClietn.putUser('ivan@gmail.com', newUser).then( data => console.log(data));

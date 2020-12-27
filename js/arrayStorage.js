@@ -19,7 +19,8 @@ class ArrayStorage{
     updateItem(id, changedItem) {
         const itemIndex = this.array.findIndex( x => x.id === Number(id));
         const oldItem = this.array[itemIndex];
-        const updatedItem = {...oldItem, ...changedItem};
+        const normalizedData = Object.fromEntries(Object.entries(changedItem).filter( ([key, value]) => value !== undefined))
+        const updatedItem = {...oldItem, ...normalizedData};
         this.array.splice(itemIndex, 1, updatedItem);
         return updatedItem;
     }

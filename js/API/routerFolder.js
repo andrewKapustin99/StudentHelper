@@ -33,7 +33,7 @@ router
     })
     .put('/:id', async (req, res) => {
         const id = req.params.id;
-        const folder = await folderStorage.updateItem(id, req.body );
+        const folder = await folderStorage.updateItem(id, new Folder({id: req.body.id, name: req.body.name, parentFolderId: req.body.parentFolderId}) );
         res.send(folder);
     })
 

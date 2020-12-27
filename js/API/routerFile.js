@@ -19,7 +19,7 @@ router // вынести в отдельный файл
     })
     .put('/:id',async (req, res) => {
         const id = req.params.id;
-        const file = await documents.updateItem(id, req.body);
+        const file = await documents.updateItem(id, new SubjectDocument({name: req.body.name, subject: req.body.subject, year: req.body.year, mark: req.body.mark, parentFolderId: req.body.parentFolderId}));
         res.send(file);
     })
     .delete('/:id',async (req, res) => {

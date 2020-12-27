@@ -27,7 +27,8 @@ class MapStorage {
     }
     updateUser(id, newItem) {
         const oldItem = this.map.get(id);
-        const updatedItem = {...oldItem, ...newItem};
+        const normalizedData = Object.fromEntries(Object.entries(newItem).filter( ([key, value]) => value !== undefined));
+        const updatedItem = {...oldItem, ...normalizedData};
         this.map.set(id, updatedItem);
         return updatedItem;
     }
