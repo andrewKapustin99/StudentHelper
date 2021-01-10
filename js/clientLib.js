@@ -62,7 +62,7 @@ const folderExample = {
 const folderClietn = new FolderClient();
 // folderClietn.getRootFolder().then(data => console.log(data));
 // folderClietn.getFolder(2).then(data => console.log(data));
-// folderClietn.postFolder(folderExample).then( data=> console.log(data));
+folderClietn.postFolder(folderExample).then( data=> console.log(data));
 // folderClietn.deleteFolder(2).then( data => console.log(data));
 // folderClietn.putFolder(2, folderExample).then(data => console.log(data));
 
