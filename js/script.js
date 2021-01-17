@@ -1,26 +1,36 @@
 const table = document.getElementById('table');
 
-
-let currentFolder;
-
-let innerTr = document.getElementById('tableTr');
-
-function createFolders(item) {
-
+// верстка для папки
+function createTr(td, style) {
     let tr = document.createElement('tr');
-
+    if(style) {
+        tr.classList.add(style);
+    }
+    tr.innerHTML = td;
+    table.append(tr); 
+}
+// верстка для папки
+function createFolder(item) {
+    const style = 'table-row-folder';
     const td = `
         <td colspan="4">
             <a href="#" id="${item.id}" class="tableBtnFolders">${item.name}</a>
         </td>
+        <td class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Добавить</a>
+                <a class="dropdown-item" href="#">Удалить</a>
+                <a class="dropdown-item" href="#">Изменить</a>
+            </div>
+        </td>
     `;
-    table.append(tr);
-    tr.insertAdjacentHTML("afterend", td);
-
+    createTr(td, style)
 }
 
-function createFiles(item, index) {
-    let tr = document.createElement('tr');
+// верстка для файла
+function createFile(item) {
+    const style = 'table-row-file';
     const td = `
         <td>
             <a href="#" class="tableBtnFiles">${item.name}</a>
@@ -34,68 +44,80 @@ function createFiles(item, index) {
         <td>
             <a class="tableBtnFiles">${item.mark}</a>
         </td>
-    `
-    table.append(tr);
-    tr.insertAdjacentHTML("afterend", td);
+        <td class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Добавить</a>
+                <a class="dropdown-item" href="#">Удалить</a>
+                <a class="dropdown-item" href="#">Изменить</a>
+            </div>
+        </td>
+    `;
+    createTr(td, style);
 }
 
+// верстка для кнопки назад
 function createBackBtn(parentId) {
-    const tr = document.createElement('tr');
+    const style = 'table-row-backBtn';
     const td = `
-        <td colspan="4">
+        <td colspan="5">
             <a id="${parentId}" class="tableBtnBack">...</a>
         </td>
-    `
-    table.append(tr);
-    tr.insertAdjacentHTML("afterend", td);
+    `;
+    createTr(td, style);
 }
 
+// __________________________________________________________________________________________________________________________________
 
-folderClietn.getRootFolder().then(data => {
-    if(data.folders) {
-        data.folders.map( (item) => {
-            createFolders(item);
-        });
-    }
+// заполнение корневой папки при загрузке 
+function fillRootTable() {
+    folderClient.getRootFolder().then(data => {
+        createFolders(data);
+        createFiles(data);
+    });
+}
+fillRootTable();
 
-    if(data.innerFiles.length) {
-        data.innerFiles.map( (item, index) => {
-            createFiles(item, index);
-        });
-    }
-});
+// __________________________________________________________________________________________________________________________________
 
-document.getElementsByTagName('tbody')[0].addEventListener('click', function(event) {
+// создание всех папок из директории
+function createFolders(data) {
+    data.folders.forEach( item => createFolder(item) );
+}
+// создание всех файлов из директории
+function createFiles(data) {
+    data.innerFiles.forEach( item => createFile(item) );
+}
+
+// заполние таблицы папками и файлами исходя из директории
+function fillTable(target) {
+    folderClient.getFolder(Number(target.id)).then(data=> {
+        if(target.id != 0) {
+            createBackBtn(data.parentFolderId);
+        }
+        createFolders(data);
+        createFiles(data);
+    });
+}
+
+// очистить содержание таблицы
+function clearTable() {
+    tbody.innerHTML = '';
+}
+
+// __________________________________________________________________________________________________________________________________
+
+let tbody = document.getElementsByTagName('tbody')[0];
+tbody.addEventListener('click', function(event) {
     let target = event.target;
 
     function showContent() {
-        let element = document.getElementsByTagName('table')[0].tBodies[0];
-        while (element.firstChild) {
-            element.removeChild(element.firstChild);
-        }
-
-        folderClietn.getFolder(Number(target.id)).then(data=> {
-
-            if(target.id != 0) {
-                createBackBtn(data.parentFolderId);
-            }
-
-            data.folders.map(item => {
-                createFolders(item);
-            });
-            if(data.innerFiles.length) {
-                data.innerFiles.map( (item, index) => {
-                    createFiles(item, index);
-                });
-            }
-
-        });
+        clearTable();
+        fillTable(target);
     }
 
-    if(target.classList.value === 'tableBtnFolders') {
+    if(target.classList.value === 'tableBtnFolders' || target.classList.value === 'tableBtnBack') {
         showContent()
-    } else if (target.classList.value === 'tableBtnBack') {
-        showContent();
     }
 });
 
@@ -115,7 +137,7 @@ document.getElementsByTagName('tbody')[0].addEventListener('click', function(eve
 //         let createdFolder = {
 //             'name': folderName.value
 //         }
-//         folderClietn.postFolder(createdFolder);
+//         folderClient.postFolder(createdFolder);
 
 //         console.log();
         
