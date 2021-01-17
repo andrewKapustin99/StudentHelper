@@ -1,5 +1,5 @@
-const folderStorage = require('./FolderStorage');
-const Folder = require('./Folder');
+const folderStorage = require('../../storages/variety of storages/FolderStorage');
+const Folder = require('../variety of models/Folder');
 
 createRootFolder = function () {
     const root = folderStorage.addItems({name:'root', parentFolderId: null});

@@ -2,14 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // const documents = require('../js/DocumentStorage');
 
-const fillDocStorage = require('../js/fillFile'); // потом можно удалить
-const fillUserStorage = require('../js/fillUser');
-const fillFolderStorage = require('../js/fillFolder');
+const fillDocStorage = require('../../core/models/to fill models/fillFile'); // потом можно удалить
+const fillUserStorage = require('../../core/models/to fill models/fillUser');
+const fillFolderStorage = require('../../core/models/to fill models/fillFolder');
 
 var cors = require('cors');
 
 
-const apiRouter = require('../js/API/apiRouter');
+const apiRouter = require('./API/router/apiRouter');
 
 fillDocStorage();
 fillUserStorage();

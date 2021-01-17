@@ -1,5 +1,5 @@
-const arrayStorage = require('./arrayStorage');
-const Folder = require('./Folder')
+const arrayStorage = require('../storage types/arrayStorage');
+const Folder = require('../../models/variety of models/Folder')
 
 let _id = 0;
 class FolderStorage extends  arrayStorage{

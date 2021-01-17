@@ -1,6 +1,6 @@
 const express = require('express');
-const users = require('../Users-Storage');
-const User = require('../createUser');
+const users = require('../../../../core/storages/variety of storages/Users-Storage');
+const User = require('../../../../core/models/variety of models/createUser');
 const router = express.Router();
 
 

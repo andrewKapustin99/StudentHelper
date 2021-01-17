@@ -1,5 +1,5 @@
-const documentStorage = require('./DocumentStorage');
-const File = require('./createFile');
+const documentStorage = require('../../storages/variety of storages/DocumentStorage');
+const File = require('../variety of models/createFile');
 
 const run = function () {
     const file1 = documentStorage.addItems( {name: 'logorifm', subject: 'algebra', year: 2020, mark: 5, parentFolderId: 0});

@@ -1,7 +1,7 @@
 const express = require('express');
-const folderStorage = require('../FolderStorage');
-const filesStorage = require('../DocumentStorage')
-const Folder = require('../Folder');
+const folderStorage = require('../../../../core/storages/variety of storages/FolderStorage');
+const filesStorage = require('../../../../core/storages/variety of storages/DocumentStorage')
+const Folder = require('../../../../core/models/variety of models/Folder');
 const router = express.Router();
 
 router
