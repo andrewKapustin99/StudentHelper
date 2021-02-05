@@ -1,5 +1,15 @@
 const table = document.getElementById('table');
 
+const dropDown = `
+    <td class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Добавить</a>
+            <a class="dropdown-item" href="#">Удалить</a>
+            <a class="dropdown-item" href="#">Изменить</a>
+        </div>
+    </td>`;
+
 // верстка для папки
 function createTr(td, style) {
     let tr = document.createElement('tr');
@@ -12,26 +22,18 @@ function createTr(td, style) {
 // верстка для папки
 function createFolder(item) {
     const style = 'table-row-folder';
-    const td = `
+    const tag = `
         <td colspan="4">
             <a href="#" id="${item.id}" class="tableBtnFolders">${item.name}</a>
-        </td>
-        <td class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Добавить</a>
-                <a class="dropdown-item" href="#">Удалить</a>
-                <a class="dropdown-item" href="#">Изменить</a>
-            </div>
-        </td>
-    `;
+        </td>`;
+    let td = tag +dropDown;
     createTr(td, style)
 }
 
 // верстка для файла
 function createFile(item) {
     const style = 'table-row-file';
-    const td = `
+    const tag = `
         <td>
             <a href="#" class="tableBtnFiles">${item.name}</a>
         </td>
@@ -43,16 +45,8 @@ function createFile(item) {
         </td>
         <td>
             <a class="tableBtnFiles">${item.mark}</a>
-        </td>
-        <td class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Добавить</a>
-                <a class="dropdown-item" href="#">Удалить</a>
-                <a class="dropdown-item" href="#">Изменить</a>
-            </div>
-        </td>
-    `;
+        </td>`;
+    let td = tag +dropDown;
     createTr(td, style);
 }
 
@@ -123,6 +117,9 @@ tbody.addEventListener('click', function(event) {
 
 
 // ________________________________________________________________________________________________________________________________
+
+
+
 
 
 // let addFolderBtn = document.getElementById('addFolder');

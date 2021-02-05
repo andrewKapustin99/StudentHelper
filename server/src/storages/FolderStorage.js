@@ -1,5 +1,5 @@
-const arrayStorage = require('../storage types/arrayStorage');
-const Folder = require('../../models/variety of models/Folder')
+const arrayStorage = require('../../../core/storages/storage types/arrayStorage');
+const Folder = require('../../../core/models/models-types/Folder');
 
 let _id = 0;
 class FolderStorage extends  arrayStorage{
@@ -9,7 +9,12 @@ class FolderStorage extends  arrayStorage{
     addItems(item) {
         item.id = _id++;
         this.array.push(item);
-        return item;
+        return new Promise((resolve, reject)=> {
+            resolve(this.array[this.array.length-1])
+        });
+        // item.id = _id++;
+        // this.array.push(item);
+        // return item;
     }
 
     getElementById(id, extended) {

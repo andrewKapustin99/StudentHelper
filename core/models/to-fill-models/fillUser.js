@@ -1,5 +1,5 @@
-const userStorage = require('../../storages/variety of storages/Users-Storage');
-const User = require('../variety of models/User');
+const userStorage = require('../../../server/src/storages/Users-Storage');
+const User = require('../models-types/User');
 
 const run = function () {
     const user1 = userStorage.addItems({name: 'Ivan', id: 'ivan@gmail.com', roles: ['student']});

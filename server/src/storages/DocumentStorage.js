@@ -1,4 +1,5 @@
-const ArrayStorage = require('../storage types/arrayStorage');
+const ArrayStorage = require('../../../core/storages/storage types/arrayStorage');
+
 
 let _id = 0;
 class DocumentStorage extends ArrayStorage{

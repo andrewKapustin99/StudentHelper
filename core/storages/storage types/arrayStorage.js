@@ -1,13 +1,21 @@
+const db = require('../../../server/src/dataBase/db');
+
+
 class ArrayStorage{
     constructor(initial){
         this.array = initial || [];
     }
     addItems(item) {
+        // this.array.push(item);
+        // return item;
     }
     removeItem(id) {
         this.array = this.array.filter( element => element.id !== id)
     }
     getList() {
+        // return new Promise((resolve, reject) => {
+        //     resolve(this.array);
+        // });
         return this.array;
     }
     getElementById(id) {
@@ -24,5 +32,8 @@ class ArrayStorage{
         this.array.splice(itemIndex, 1, updatedItem);
         return updatedItem;
     }
+    // getByParentId(parentId) {
+    //     return this.array.filter( x => x.parentFolderId === parentId);
+    // }
 }
 module.exports = ArrayStorage;

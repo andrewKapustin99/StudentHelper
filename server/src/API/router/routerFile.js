@@ -1,6 +1,6 @@
 const express = require('express');
-const documents = require('../../../../core/storages/variety of storages/DocumentStorage');
-const SubjectDocument = require('../../../../core/models/variety of models/createFile');
+const documents = require('../../storages/DocumentStorage');
+const SubjectDocument = require('../../../../core/models/models-types/createFile');
 
 const router = express.Router();
 
