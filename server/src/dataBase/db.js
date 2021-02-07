@@ -1,6 +1,41 @@
+// Создание БД и методов работы с ней
 const sqlite = require('sqlite3').verbose();
 
-let db = new sqlite.Database('dataBase/StudentHelperDB.db');
+let db = new sqlite.Database('StudentHelperDB.db');
+
+db.runAsync = (sql, params) =>
+    new Promise( (resolve, reject) => {
+        db.run(sql, params, function(err, result) {
+            if(err) {
+                reject(err);
+            }
+
+            resolve({
+                lastId: this.lastID,
+                changes: this.changes
+            });
+        });
+    });
+
+db.getAsync = (sql, params) => 
+    new Promise( (resolve, reject) => {
+        db.get(sql, params, function(err, result) {
+            if(err) {
+                reject(err);
+            }
+            // resolve(row);
+            resolve(result)
+        });
+    });
+
+
+
+module.exports = db;
+
+let fillDB = require('./createDB');
+fillDB();
+
+
 
 //1
 // db.run('DROP TABLE Users', function(err) {
@@ -26,35 +61,11 @@ let db = new sqlite.Database('dataBase/StudentHelperDB.db');
 //     });
 // });
 
-db.runAsync = (sql, params) =>
-    new Promise( (resolve, reject) => {
-        db.run(sql, params, function(err, ...args) {
-            if(err) {
-                reject(err);
-            }
-            // console.log(this, ...args);
-            resolve();
-        });
-    });
-
-
-
-db.runAsync('CREATE TABLE  users (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(255) );', undefined)
-    .then(()=>db.runAsync('CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(255) );', undefined))
-.then(()=>db.close())
-
-
-
-
 // ВАРИАНТ 1
 // db.runAsync('CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(255) );', undefined)
 // .then(()=> db.runAsync('INSERT INTO users (name) VALUES (?)', ['Ivan']))
 // .then(()=> db.runAsync('INSERT INTO users (name) VALUES (?)', ['Andrew']))
 // .then(()=>db.close())
-
-module.exports = db;
-
-
 
 // ВАРИАНТ 2
 // const runDB = async () =>{

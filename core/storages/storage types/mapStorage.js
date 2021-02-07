@@ -18,7 +18,7 @@ class MapStorage {
     }
     getList() {
         let arr = Object.fromEntries(this.map.entries());
-        return Object.values(arr)
+        return Promise.resolve(Object.values(arr))
     }
     sortItems(key){
         let keysValue = Object.fromEntries(this.map.entries());
