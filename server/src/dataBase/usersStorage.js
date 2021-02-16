@@ -2,49 +2,24 @@
 const db = require('./db')
 
 class UsersStorage {
-    getList() {
-        return new Promise((resolve, reject) => {
-            db.all(`SELECT user_id, name, roleName FROM Users JOIN UserRoles ON user_id = userId
-            JOIN Roles ON roleId = role_id`, (err,rows)=> {
-                if(err) {
-                    reject(err);
-                }
-                resolve(rows)
-            })
-        })
+    async getList() {
+        return await db.allAsync(`SELECT user_id, name, roleName FROM Users JOIN UserRoles ON user_id = userId
+        JOIN Roles ON roleId = role_id`)
     }
     async addItems(item) {
         const result = await db.runAsync(`INSERT INTO Users (name) VALUES (?)`, [item.name]);
         await db.runAsync(`INSERT INTO UserRoles (userId, roleId) VALUES (?, 1)`, [result.lastId]);
 
-        return new Promise( (resolve, reject) => {
-            db.get(`SELECT * FROM Users WHERE user_id == ${result.lastId}`, function(err, row) {
-                if(err) {
-                    reject(err);
-                }
-                resolve(row);
-            });
-        })
-
-        
-
-        // await db.getAsync(`SELECT * FROM Users WHERE user_id == ${result.lastId}`); // не возрващает объект
-
+        return await db.getAsync(`SELECT * FROM Users WHERE user_id == ${result.lastId}`)
     }
 
     async getElementById(id) {
-        return new Promise((resolve, reject)=>{
-            db.each(`SELECT * FROM Users WHERE user_id == ${id}`, function(err, row) {
-                if(err){
-                    reject(err);
-                }
-                resolve(row);
-            })
-        })
+        return await db.getAsync(`SELECT * FROM Users WHERE user_id == ${id}`)
     }
 
     async updateUser(id, newUser) {
         await db.runAsync(`UPDATE Users SET name = (?) WHERE user_id = (?)`, [`${newUser.name}`, `${id}`])
+        await db.runAsync(`UPDATE Users SET name = (?) WHERE user_id = (?)`)
     }
     async getValue (value) {
         return Promise.resolve(value.user_id)

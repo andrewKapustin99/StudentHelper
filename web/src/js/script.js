@@ -86,7 +86,7 @@ function createFiles(data) {
 // заполние таблицы папками и файлами исходя из директории
 function fillTable(target) {
     folderClient.getFolder(Number(target.id)).then(data=> {
-        if(target.id != 0) {
+        if(target.id != 1) {
             createBackBtn(data.parentFolderId);
         }
         createFolders(data);
@@ -118,7 +118,7 @@ tbody.addEventListener('click', function(event) {
 
 // ________________________________________________________________________________________________________________________________
 
-
+console.log();
 
 
 
