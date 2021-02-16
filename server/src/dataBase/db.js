@@ -23,11 +23,38 @@ db.getAsync = (sql, params) =>
             if(err) {
                 reject(err);
             }
-            // resolve(row);
             resolve(result)
         });
     });
 
+db.eachAsync = (sql, params) => {
+    let promises = [];
+    
+    new Promise((resolve, reject)=>{
+        db.each(sql, params, function(err, row) {
+            if(err) {
+                reject(err)
+            }
+            resolve(promises.push(row))
+        })
+    })
+    return Promise.all(promises);
+}
+    
+
+
+
+db.allAsync = (sql, params) => {
+    return new Promise((resolve, reject)=>{
+        db.all(sql, params, function(err, rows) {
+            if(err) {
+                reject(err)
+            }
+            resolve(rows)
+        });
+    })
+}
+    
 
 
 module.exports = db;
@@ -36,6 +63,11 @@ let fillDB = require('./createDB');
 fillDB();
 
 
+let fillDocs = require('./createDocStorage');
+fillDocs();
+
+let fillFolders = require('./createFoldStorage');
+fillFolders();
 
 //1
 // db.run('DROP TABLE Users', function(err) {

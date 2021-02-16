@@ -4,7 +4,8 @@ const db = require('./db')
 class UsersStorage {
     getList() {
         return new Promise((resolve, reject) => {
-            db.all(`SELECT * FROM Users`, (err,rows)=> {
+            db.all(`SELECT user_id, name, roleName FROM Users JOIN UserRoles ON user_id = userId
+            JOIN Roles ON roleId = role_id`, (err,rows)=> {
                 if(err) {
                     reject(err);
                 }
@@ -24,6 +25,8 @@ class UsersStorage {
                 resolve(row);
             });
         })
+
+        
 
         // await db.getAsync(`SELECT * FROM Users WHERE user_id == ${result.lastId}`); // не возрващает объект
 

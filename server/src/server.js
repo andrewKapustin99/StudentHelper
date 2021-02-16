@@ -2,18 +2,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // const documents = require('../js/DocumentStorage');
 
-const fillDocStorage = require('../../core/models/to-fill-models/fillFile'); // потом можно удалить
+// const fillDocStorage = require('../../core/models/to-fill-models/fillFile'); // потом можно удалить
 // const fillUserStorage = require('../../core/models/to-fill-models/fillUser');
-const fillFolderStorage = require('../../core/models/to-fill-models/fillFolder');
+// const fillFolderStorage = require('../../core/models/to-fill-models/fillFolder');
 
 var cors = require('cors');
 
 
 const apiRouter = require('./API/router/apiRouter');
 
-fillDocStorage();
+// fillDocStorage();
 // fillUserStorage();
-fillFolderStorage();
+// fillFolderStorage();
 
 const app = express();
 app.use(bodyParser.json()); // чтобы парсить json
