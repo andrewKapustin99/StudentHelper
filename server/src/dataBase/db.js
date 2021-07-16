@@ -1,6 +1,5 @@
 // Создание БД и методов работы с ней
 const sqlite = require('sqlite3').verbose();
-
 let db = new sqlite.Database('StudentHelperDB.db');
 
 db.runAsync = (sql, params) =>

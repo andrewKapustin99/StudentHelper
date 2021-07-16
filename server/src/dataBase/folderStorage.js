@@ -3,7 +3,7 @@ const db = require('./db')
 class FoldersStorage {
     async addItems(item) {
         const result = await db.runAsync(`INSERT INTO Folders (name, parentFolderId) VALUES (?, ?)`, [item.name, item.parentFolderId])
-        await db.getAsync(`SELECT * FROM Folders WHERE id = ${result.lastId}`)
+        return await db.getAsync(`SELECT * FROM Folders WHERE id = ${result.lastId}`)
         // возвращает id = 1 всегда
     }
     async removeItem(id) {

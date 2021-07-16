@@ -19,7 +19,6 @@
                 <th scope="col">Предмет</th>
                 <th scope="col">Год</th>
                 <th scope="col">Оценка</th>
-                <th scope="col">Действие</th>
               </tr>
             </thead>
             <tbody id="table">
@@ -28,8 +27,8 @@
           </table>
 
           
-          <button type="button" class="btn btn-success" id="addFolder" data-toggle="modal" data-target="#exampleModal">Добавить</button>
-          <button type="button" class="btn btn-danger" id="deleteFolder">Удалить</button>
+          <!-- <button type="button" class="btn btn-success" id="addFolder" data-toggle="modal" data-target="#exampleModal">Добавить</button>
+          <button type="button" class="btn btn-danger" id="deleteFolder">Удалить</button> -->
     </div>
 
 
@@ -59,6 +58,47 @@
             <button type="button" class="btn btn-primary" id="submitFolder">Добавить</button>
           </div>
         </div>
+      </div>
+    </div>
+    
+
+    <!-- меню действий --> 
+    <div id="folderDropdown" class="dropdown-content">
+      <a href="#" id='addFolder'>Добавить</a>
+      <a href="#" id='removeFolder'>Удалить</a>
+      <a href="#" id="renameFolder">Изменить</a>
+    </div>
+
+    <div id="fileDropdown" class="dropdown-content">
+      <a href="#" id='removeFolder'>Удалить</a>
+      <a href="#" id="renameFolder">Изменить</a>
+    </div>
+
+
+    <div class="folderChangeMenu">
+      <div class="wrapp">
+        <div class="modal_add_folder hide">
+            <div class="add_folder_wrapp">
+                <div class="modal_folder_window">
+                    <div class="modal_folder_header">
+                        <h5 id="modal_folder_header-title">Добавить папку</h5>
+                        <button id="closeModalWindow">x</button>
+                    </div>
+                    <div class="modal_folder_body" id="modal_folder_body">
+                        <div class="folder_body_wrapp">
+                            <!-- <label> Название папки
+                                <input type="text">
+                            </label> -->
+                        </div>
+                    </div>
+                    <div class="modal_folder_footer" id="modal_folder_footer">
+                        <!-- <button>Закрыть</button>
+                        <button>Добавить</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="darkBcgr hide"></div>
       </div>
     </div>
 
